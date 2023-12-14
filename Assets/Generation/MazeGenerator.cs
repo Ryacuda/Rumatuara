@@ -13,98 +13,134 @@ public class MazeGenerator
 	}
 
 	// Generate a maze using Wilson's algorithm
-	public static Room WilsonMaze(Vector2Int size, Vector2Int initial_room)
+	public static List<Room> WilsonMaze(Vector2Int size, Vector2Int initial_room)
 	{
-		if(initial_room.x > size.x || initial_room.x < 0
+		List<Room> room_list = new List<Room>();
+
+        if (initial_room.x > size.x || initial_room.x < 0
 		   || initial_room.y > size.y || initial_room.y < 0)
 		{   // initial room is outside of the maze :(
-			return new Room(initial_room);
+			return room_list;
 		}
 
-		List< List<Room> > room_grid = new List<List<Room>>();
-		for(int x = 0; x < size.x; x++)
+		room_list.Add(new Room(initial_room));
+
+		
+		// select new starting point
+		Room start_room = GetNewStart(ref room_list, ref size);
+		
+		Debug.Log("1.");
+        
+		List<Vector2Int> random_walk = RandomWalk(ref room_list, ref size, ref start_room);
+        /*
+        Debug.Log("2.");
+
+        EraseLoops(random_walk);
+
+        Debug.Log("3.");
+
+        foreach (Vector2Int p in random_walk)
 		{
-			room_grid.Add(new List<Room>());
-
-			for(int y = 0; y < size.y; y++)
-			{
-				room_grid[x].Add(new Room(new Vector2Int(x, y)));
-			}
+			room_list.Add(new Room(p));
 		}
-
-		room_grid[initial_room.x][initial_room.y].in_maze = true;
-
-
-		Room s = GetNewRandomwalkStart(ref room_grid);
-
-		List<Room> connection_candidates = new List<Room>();
-
-        for (int dx = -1; dx <= 1; dx++)
-        {
-            for (int dy = -1; dy <= 1; dy++)
-            {
-                int nx = s.position.x + dx;
-                int ny = s.position.y + dy;
-
-                if(Mathf.Abs(dx + dy) != 1
-                  || (nx > room_grid.Count || nx < 0 || ny > room_grid[0].Count || ny < 0))
-                {
-                    continue;
-                }
-
-				if (room_grid[nx][ny].in_maze)
-				{
-					connection_candidates.Add(room_grid[nx][ny]);
-				}
-            }
-        }
-
-		int i = Random.Range(0, connection_candidates.Count);
-		connection_candidates[i].connected_rooms.Add(s);
-		s.connected_rooms.Add(connection_candidates[i]);
-
-        return new Room(initial_room);
+		*/
+        return room_list;
 	}
 
-	private static Room GetNewRandomwalkStart(ref List<List<Room>> room_grid)
+    private static Room GetNewStart(ref List<Room> room_list, ref Vector2Int size)
 	{
-		List<Room> candidates = new List<Room>();
-        for (int x = 0; x < room_grid.Count; x++)
+        for (int x = 0; x < size.x; x++)
         {
-            for (int y = 0; y < room_grid[0].Count; y++)
+            for (int y = 0; y < size.y; y++)
             {
-				if (room_grid[x][y].in_maze)
-				{
-					continue;
-				}
+				Vector2Int p = new Vector2Int(x, y);
 
-				bool is_candidate = false;
-				// check if a neighbouring room is in the maze or not
-                for(int dx = -1; dx <= 1; dx++)
-				{
-					for(int dy = -1; dy <= 1; dy++)
-					{
-						int nx = x + dx;
-						int ny = y + dy;
-
-						// check only the direct neighbours
-						if(Mathf.Abs( dx + dy) != 1
-						  || (nx > room_grid.Count || nx < 0 || ny > room_grid[0].Count || ny < 0 ) )
-						{
-							continue;
-						}
-
-						is_candidate = is_candidate || room_grid[nx][ny].in_maze;
-					}
-				}
-
-                if (is_candidate)
+                foreach (Room r in room_list)
                 {
-					candidates.Add(room_grid[x][y]);
+                    if (Vector2Int.Distance(p, r.position) == 1)
+                    {   // found the starting room !
+						Room start = new Room(p);
+
+						start.connected_rooms.Add(r);
+						r.connected_rooms.Add(start);
+						
+						return start;
+                    }
                 }
             }
         }
 
-		return candidates[Random.Range(0, candidates.Count)];
+		return new Room(new Vector2Int(0,0));
+    }
+
+	private static List<Vector2Int> RandomWalk(ref List<Room> room_list, ref Vector2Int size, ref Room start)
+	{
+		List<Vector2Int> room_walk = new List<Vector2Int>();
+		room_walk.Add(start.position);
+
+		Vector2Int pos = start.position;
+		bool stop_loop = false;
+		while(!stop_loop)
+		{
+            room_walk.Add(pos);
+
+            // walk to next pos
+            Vector2Int next_pos = pos + GetNewMove(ref size);
+			while(next_pos.x > size.x || next_pos.x < 0
+				|| next_pos.y > size.y || next_pos.y < 0)
+			{
+				next_pos = pos + GetNewMove(ref size);
+			}
+
+			pos = next_pos;
+
+			Debug.Log(pos);
+            Debug.Log(next_pos);
+
+            stop_loop = true;
+
+			/*
+
+            // check if the last element is next to the maze
+			foreach(Room r in room_list)
+			{
+				Debug.Log(Vector2Int.Distance(next_pos, r.position));
+				if(Vector2Int.Distance(next_pos, r.position) == 1)
+				{
+					stop_loop = true;
+					break;
+				}
+			}*/
+        }
+
+		return room_walk;
+    }
+
+	private static void EraseLoops(List<Vector2Int> random_walk)
+	{
+		for(int i = 0; i < random_walk.Count; i++)
+		{
+			int last_i = random_walk.FindLastIndex(i+1, random_walk.Count - (i+1) ,p => p.Equals(random_walk[i]));
+
+			if(last_i != -1)
+			{
+				random_walk.RemoveRange(i, last_i - i);
+			}
+		}
+	}
+
+	private static Vector2Int GetNewMove(ref Vector2Int size)
+	{
+        int coord_rand = Random.Range(0, 2);
+        int diff_rand = Random.Range(0, 2) * 2 - 1;
+        
+		if (coord_rand == 0)
+        {
+            return new Vector2Int(diff_rand, 0);
+        }
+        else
+        {
+            return new Vector2Int(0, diff_rand);
+        }
     }
 }
