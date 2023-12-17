@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27711e7590964664c8e7cf3ad7ef8c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maze_size: {x: 5, y: 5}
-  starting_room: {x: 0, y: 0}
+  maze_size: {x: 30, y: 30}
+  starting_room: {x: 10, y: 10}
 --- !u!4 &1365406514
 Transform:
   m_ObjectHideFlags: 0

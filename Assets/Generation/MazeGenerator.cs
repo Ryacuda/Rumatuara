@@ -32,15 +32,15 @@ public class MazeGenerator
 		while( RW_start != null )
 		{
 			// loop erased random walk
-			List<Room> walk = LoopErasedRandomWalk( RW_start );
+			LoopErasedRandomWalk( RW_start );
 
-			break;
+			RW_start = m.FindFirstCandidate();
 		}
 
 		return m;
 	}
 
-	private static List<Room> LoopErasedRandomWalk(Room start)
+	private static void LoopErasedRandomWalk(Room start)
 	{
 		List<Room> walk = new List<Room> { start };
 
@@ -79,8 +79,6 @@ public class MazeGenerator
 			loop_erased_walk[i].ConnectTo(loop_erased_walk[i + 1]);
 			loop_erased_walk[i + 1].ConnectTo(loop_erased_walk[i]);
 		}
-
-		return loop_erased_walk;
 	}
 
 }
