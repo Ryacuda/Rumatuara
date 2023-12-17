@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class mazevizualizer : MonoBehaviour
 {
-	List<Room> rooms;
+	[SerializeField] Vector2Int maze_size;
+	[SerializeField] Vector2Int starting_room;
+
+	Maze m;
 	private bool giz = false;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		m = MazeGenerator.WilsonMaze(maze_size, starting_room);
+
 		giz = true;
-		rooms = MazeGenerator.WilsonMaze(new Vector2Int(5,5), new Vector2Int(2,2));
 	}
 
 	// Update is called once per frame
@@ -24,9 +28,17 @@ public class mazevizualizer : MonoBehaviour
 	{
 		if (giz)
 		{
-			foreach (Room r in rooms)
+			foreach (Room r in m.rooms)
 			{
-				Gizmos.DrawCube(new Vector3(r.position.x, r.position.y, 0), new Vector3(1,1,1));
+				Gizmos.DrawCube(new Vector3(r.position.x, r.position.y, 0), 0.75f * Vector3.one);
+				
+				foreach(KeyValuePair<Room, bool> pair in r.connected_rooms)
+				{
+					if (pair.Value)
+					{
+						Gizmos.DrawLine(new Vector3(r.position.x, r.position.y,0), new Vector3(pair.Key.position.x, pair.Key.position.y, 0));
+					}
+				}
 			}
 		}
 	}
