@@ -6,16 +6,15 @@ public class mazevizualizer : MonoBehaviour
 {
 	[SerializeField] Vector2Int maze_size;
 	[SerializeField] Vector2Int starting_room;
+	[SerializeField] private bool giz = false;
 
-	Maze m;
-	private bool giz = false;
+    Maze m;
+	
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		m = MazeGenerator.WilsonMaze(maze_size, starting_room);
-
-		giz = true;
 	}
 
 	// Update is called once per frame
