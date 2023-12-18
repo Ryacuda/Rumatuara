@@ -22,6 +22,8 @@ Ce projet est développé en CSharp dans le moteur de jeu Unity.
 
 ## Algorithme de Wilson
 
+<img width="912" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="">
+
 Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique des Loop-Erased Random Walk itérativement. Cet algorithme est une méthode utilisée pour générer une marche aléatoire sur un graphe tout en évitant la formation de boucles (boucles fermées). Cet algorithme est souvent utilisé pour générer un arbre couvrant uniformément aléatoire sur un graphe connexe. On peut découper l'algorithme de Wilson en 5 grande étapes. 
 
 - L'initialisation
@@ -34,3 +36,7 @@ L'initialisation consiste à choisir un nœud initial arbitraire dans le graphe 
 
 L'idée clé de l'algorithme est de garantir que le chemin résultant ne contient pas de boucles, ce qui garantit que l'arbre couvrant généré est uniformément aléatoire. Cela signifie que tous les arbres couvrants possibles ont la même probabilité d'être générés.
 L'algorithme de Wilson est utilisé dans le contexte de la théorie des graphes et de l'informatique pour générer des structures aléatoires tout en évitant les biais associés à certaines méthodes de génération d'arbres couvrants.
+
+## Sources
+
+[Génération de labyrinthes - Wikipedia](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
