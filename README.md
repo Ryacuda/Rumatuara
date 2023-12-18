@@ -1,4 +1,10 @@
 # Rumatuara
+
+## Auteurs
+
+- Luc Enée
+- Adam Germain
+
 ## _Génération Procédurale de Labyrinthe avec Sliders_
 
 Rumatuara est un générateur de labyrinthe procédural s'inspirant des backrooms et est réalisé dans le cadre du cours de 'Modélisation géométrique/Mondes virtuels '.
@@ -29,13 +35,10 @@ Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique de
 - L'initialisation
 - La marche aléatoire
 - Loop-Erased
-- La répétition
-- L'arbre couvrant
 
 L'initialisation consiste à choisir un nœud initial arbitraire dans le graphe et marquez-le comme visité. C'est le point de départ de la marche aléatoire. À chaque étape, l'algorithme choisi un voisin non visité du nœud actuel et se déplace vers ce voisin. Il continu jusqu'à ce qu'il atteigne un nœud déjà visité. Ensuite, si à un certain point de la marche aléatoire, un cycle (boucle) est formé, l'algorithm élimine cette boucle du chemin parcouru. Cela signifie que si il retourne à un nœud déjà visité, il supprime toutes les arêtes entre ce nœud et le nœud actuel dans le chemin qu'il a parcouru. La marche aléatoire continue après avoir éliminé la boucle. Ces étapes se répètent jusqu'à ce que tous les nœuds du graphe soient visités. Une fois que tous les nœuds ont été visités, l'ensemble des arêtes parcourues forme un arbre couvrant uniformément aléatoire du graphe.
 
-L'idée clé de l'algorithme est de garantir que le chemin résultant ne contient pas de boucles, ce qui garantit que l'arbre couvrant généré est uniformément aléatoire. Cela signifie que tous les arbres couvrants possibles ont la même probabilité d'être générés.
-L'algorithme de Wilson est utilisé dans le contexte de la théorie des graphes et de l'informatique pour générer des structures aléatoires tout en évitant les biais associés à certaines méthodes de génération d'arbres couvrants.
+Après la génération de ce labyrinthe avec l'algorithme de Wilson, on ajoute des grandes salles (grandes à l'opposé des couloirs). Pour cela, un paramètre de densité est disponible, qui régit le nombre de salles par rapport à la taille du labyrinthe. On peut aussi régler la taille moyenne de ces salles.
 
 ## Sources
 
