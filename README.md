@@ -51,3 +51,5 @@ Après la génération de ce labyrinthe avec l'algorithme de Wilson, on ajoute d
 ## Sources
 
 [Génération de labyrinthes - Wikipedia](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
+[Backrooms - Wikipedia](https://en.wikipedia.org/wiki/The_Backrooms)
+
