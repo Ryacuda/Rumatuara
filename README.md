@@ -22,6 +22,12 @@ Rumatuara est un générateur de labyrinthe procédural s'inspirant des backroom
 
 Ce projet est développé en CSharp dans le moteur de jeu Unity.
 
+Après génération du labyrinthe, l'objectif est d'avoir une modélisation 3D basique donnant un aperçu plus concret.
+
+## Motivations
+
+L'objectif de ce projet est d'avoir un générateur simple de labyrinthes, avec quelques paramètres modifiables pour obtenir un résultat satisfaisant. De plus, les labyrinthes sont très présents dans le monde du jeu vidéo.
+
 ## Backrooms
 
 > The Backrooms est une légende urbaine effrayante dite creepypasta, diffusée sur Internet. Elle raconte l'histoire d'endroits accessibles en se noclippant de la réalité. Cet endroit est considéré comme une dimension parallèle, vide, à plusieurs niveaux connectés entre eux, utilisant pratiquement tous des espaces possédant des caractéristiques telles que des grandes pièces vides et répétitives, donnant une sensation de déjà-vu à tout ceux qui s'y aventureraient.
@@ -30,7 +36,7 @@ Ce projet est développé en CSharp dans le moteur de jeu Unity.
 
 <img width="400" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/15x15.png?raw=true">
 
-Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique des Loop-Erased Random Walk itérativement. Cet algorithme est une méthode utilisée pour générer une marche aléatoire sur un graphe tout en évitant la formation de boucles (boucles fermées). Cet algorithme est souvent utilisé pour générer un arbre couvrant uniformément aléatoire sur un graphe connexe. On peut découper l'algorithme de Wilson en 5 grande étapes. 
+Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique des Loop-Erased Random Walk itérativement. Cet algorithme est une méthode utilisée pour générer une marche aléatoire sur un graphe tout en évitant la formation de boucles (boucles fermées). Cet algorithme est souvent utilisé pour générer un arbre couvrant uniformément aléatoire sur un graphe connexe. L'algorithme peut être découpé comme suit :
 
 - L'initialisation
 - La marche aléatoire
