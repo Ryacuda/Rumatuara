@@ -30,6 +30,8 @@ L'objectif de ce projet est d'avoir un générateur simple de labyrinthes, avec 
 
 ## Backrooms
 
+<img width="600" alt="Backrooms" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/Backrooms_model.jpg?raw=true">
+
 > The Backrooms est une légende urbaine effrayante dite creepypasta, diffusée sur Internet. Elle raconte l'histoire d'endroits accessibles en se noclippant de la réalité. Cet endroit est considéré comme une dimension parallèle, vide, à plusieurs niveaux connectés entre eux, utilisant pratiquement tous des espaces possédant des caractéristiques telles que des grandes pièces vides et répétitives, donnant une sensation de déjà-vu à tout ceux qui s'y aventureraient.
 
 ## Algorithme de Wilson
