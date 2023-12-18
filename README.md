@@ -22,7 +22,7 @@ Ce projet est développé en CSharp dans le moteur de jeu Unity.
 
 ## Algorithme de Wilson
 
-<img width="912" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="">
+<img width="400" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/15x15.png?raw=true">
 
 Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique des Loop-Erased Random Walk itérativement. Cet algorithme est une méthode utilisée pour générer une marche aléatoire sur un graphe tout en évitant la formation de boucles (boucles fermées). Cet algorithme est souvent utilisé pour générer un arbre couvrant uniformément aléatoire sur un graphe connexe. On peut découper l'algorithme de Wilson en 5 grande étapes. 
 
