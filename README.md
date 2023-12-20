@@ -1,4 +1,4 @@
-![2d](https://github.com/Ryacuda/Rumatuara/assets/55671330/dd86d7f5-f538-4b26-acde-78f298c92f2e)# Rumatuara
+# Rumatuara
 
 ## Auteurs
 
@@ -34,7 +34,7 @@ L'objectif de ce projet est d'avoir un générateur simple de labyrinthes, avec 
 
 ## Algorithme de Wilson
 
-<img width="400" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/2d.PNG?raw=true">
+<img width="600" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/2d.PNG?raw=true">
 
 Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique des Loop-Erased Random Walk itérativement. Cet algorithme est une méthode utilisée pour générer une marche aléatoire sur un graphe tout en évitant la formation de boucles (boucles fermées). Cet algorithme est souvent utilisé pour générer un arbre couvrant uniformément aléatoire sur un graphe connexe. L'algorithme peut être découpé comme suit :
 
@@ -46,7 +46,7 @@ L'initialisation consiste à choisir un nœud initial arbitraire dans le graphe 
 
 ## Exemples 3D
 
-<img width="400" alt="Labyrinthe 25x15 généré avec l'algorithme de Wilson, puis généré en 3D" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/maze15x25.PNG?raw=true">
+<img width="600" alt="Labyrinthe 25x15 généré avec l'algorithme de Wilson, puis généré en 3D" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/maze15x25.PNG?raw=true">
 
 ## Sources
 
