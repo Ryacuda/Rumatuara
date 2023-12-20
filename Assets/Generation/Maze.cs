@@ -53,13 +53,7 @@ public class Maze
 		{
 			if (!r1.in_maze)
 			{
-				foreach (Room r2 in rooms)
-				{
-					if (r2.in_maze)
-					{
-						return r1;
-					}
-				}
+				return r1;
 			}
 		}
 
