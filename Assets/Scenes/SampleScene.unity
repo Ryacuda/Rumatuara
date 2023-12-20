@@ -247,7 +247,7 @@ MonoBehaviour:
   wall_prefab: {fileID: 4893841874382710467, guid: 60ccca5c3ceb0e044a56490ea4fc1346, type: 3}
   mat: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   maze_wall_height: 2
-  maze_size: {x: 50, y: 50}
+  maze_size: {x: 25, y: 15}
   starting_room: {x: 0, y: 0}
   giz: 0
 --- !u!4 &1365406514
