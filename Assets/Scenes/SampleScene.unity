@@ -247,7 +247,7 @@ MonoBehaviour:
   wall_prefab: {fileID: 4893841874382710467, guid: 60ccca5c3ceb0e044a56490ea4fc1346, type: 3}
   mat: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   maze_wall_height: 2
-  maze_size: {x: 3, y: 3}
+  maze_size: {x: 50, y: 50}
   starting_room: {x: 0, y: 0}
   giz: 0
 --- !u!4 &1365406514
@@ -295,7 +295,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 113.71
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

@@ -80,5 +80,4 @@ public class MazeGenerator
 			loop_erased_walk[i + 1].ConnectTo(loop_erased_walk[i]);
 		}
 	}
-
 }
