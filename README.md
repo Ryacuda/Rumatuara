@@ -1,4 +1,4 @@
-# Rumatuara
+![2d](https://github.com/Ryacuda/Rumatuara/assets/55671330/dd86d7f5-f538-4b26-acde-78f298c92f2e)# Rumatuara
 
 ## Auteurs
 
@@ -17,8 +17,6 @@ Rumatuara est un générateur de labyrinthe procédural s'inspirant des backroom
 
 - Modification des dimensions du labyrinthe
 - Choix de l'emplacement de la salle de départ
-- Sélection de la tailles des pièces
-- Sélection de la densité et/ou du nombre de salle
 
 Ce projet est développé en CSharp dans le moteur de jeu Unity.
 
@@ -36,7 +34,7 @@ L'objectif de ce projet est d'avoir un générateur simple de labyrinthes, avec 
 
 ## Algorithme de Wilson
 
-<img width="400" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/15x15.png?raw=true">
+<img width="400" alt="Labyrinthe 15x15 généré avec l'algorithme de Wilson" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/2d.PNG?raw=true">
 
 Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique des Loop-Erased Random Walk itérativement. Cet algorithme est une méthode utilisée pour générer une marche aléatoire sur un graphe tout en évitant la formation de boucles (boucles fermées). Cet algorithme est souvent utilisé pour générer un arbre couvrant uniformément aléatoire sur un graphe connexe. L'algorithme peut être découpé comme suit :
 
@@ -46,7 +44,9 @@ Pour générer le labyrinthe, on utilise l'algorithme de Wilson, qui applique de
 
 L'initialisation consiste à choisir un nœud initial arbitraire dans le graphe et à le marquer comme visité. C'est le point de départ de la marche aléatoire. À chaque étape, l'algorithme choisi un voisin non visité du nœud actuel et se déplace vers ce voisin. Il continue jusqu'à ce qu'il atteigne un nœud déjà visité. Ensuite, si à un certain point de la marche aléatoire, un cycle (boucle) est formé, l'algorithm élimine cette boucle du chemin parcouru. Cela signifie que si il retourne à un nœud déjà visité, il supprime toutes les arêtes entre ce nœud et le nœud actuel dans le chemin qu'il a parcouru. La marche aléatoire continue après avoir éliminé la boucle. Ces étapes se répètent jusqu'à ce que tous les nœuds du graphe soient visités. Une fois que tous les nœuds ont été visités, l'ensemble des arêtes parcourues forme un arbre couvrant uniformément aléatoire du graphe.
 
-Après la génération de ce labyrinthe avec l'algorithme de Wilson, on ajoute des grandes salles (grandes à l'opposé des couloirs). Pour cela, un paramètre de densité est disponible, qui régit le nombre de salles par rapport à la taille du labyrinthe. On peut aussi régler la taille moyenne de ces salles.
+## Exemples 3D
+
+<img width="400" alt="Labyrinthe 25x15 généré avec l'algorithme de Wilson, puis généré en 3D" src="https://github.com/Ryacuda/Rumatuara/blob/main/readme_mats/maze15x25.PNG?raw=true">
 
 ## Sources
 
